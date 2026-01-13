@@ -21,6 +21,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: test_db
+    volumes:
+      - mysql-data:/var/lib/mysql
     networks:
       - notes-app
     restart: always
@@ -51,6 +53,9 @@ services:
       timeout: 5s
       retries: 5
       start_period: 30s
+
+volumes:
+  mysql-data:
 
 networks:
   notes-app:
